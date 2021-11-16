@@ -25,5 +25,6 @@ const Error404: NextPage = () => {
     </Wrapper>
   );
 };
+Error404.title = '404';
 
 export default Error404;
