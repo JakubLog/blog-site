@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Paragraph } from '../components/atoms/Paragraph';
-import { Title } from '../components/atoms/Title';
+import { Paragraph } from '../components/atoms/Paragraph/Paragraph';
+import { Title } from '../components/atoms/Title/Title';
 
 export const Wrapper = styled.div`
   display: flex;
