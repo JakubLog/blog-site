@@ -23,10 +23,14 @@ const Blog: NextPage<props> = ({ allArticles }) => {
 Blog.title = 'Blog';
 
 export const getServerSideProps = async () => {
-  const allArticles = await axios.get('https://jsonplaceholder.typicode.com/posts');
+  const allArticles = await axios.post(
+    'https://api.m3o.com/v1/db/Read',
+    { table: 'articles' },
+    { headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` } }
+  );
 
   return {
-    props: { allArticles: allArticles.data }
+    props: { allArticles: allArticles.data.records }
   };
 };
 

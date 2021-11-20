@@ -15,8 +15,12 @@ const BlogID: NextPage<props> = ({ article }) => {
 };
 
 export const getStaticPaths = async () => {
-  const allArticles = await axios.get('https://jsonplaceholder.typicode.com/posts');
-  const paths = allArticles.data.map((article: any) => {
+  const allArticles = await axios.post(
+    'https://api.m3o.com/v1/db/Read',
+    { table: 'articles' },
+    { headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` } }
+  );
+  const paths = allArticles.data.records.map((article: any) => {
     return {
       params: {
         id: article.id.toString()
@@ -31,11 +35,15 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }: any) => {
-  const article = await axios.get(`https://jsonplaceholder.typicode.com/posts/${params.id}`);
+  const article = await axios.post(
+    'https://api.m3o.com/v1/db/Read',
+    { table: 'articles', id: params.id },
+    { headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` } }
+  );
 
   return {
     props: {
-      article: article.data
+      article: article.data.records[0]
     }
   };
 };
