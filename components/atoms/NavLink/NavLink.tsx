@@ -1,23 +1,19 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { StyledLink, MiddleLink } from './NavLink.styles';
+import { StyledLink } from './NavLink.styles';
 
 interface props {
   to: string;
-  target?: string;
+  alternate?: string;
 }
 
-const NavLink: React.FC<props> = ({ to, children, target }) => {
+const NavLink: React.FC<props> = ({ to, children, alternate }) => {
   const { asPath } = useRouter();
 
   return (
-    <a className={asPath === to ? 'active' : 'no-active'}>
-      <StyledLink href={to}>
-        <MiddleLink target={target} isTarget={target !== ''} rel="noreferrer" style={{ cursor: 'pointer' }}>
-          {children}
-        </MiddleLink>
-      </StyledLink>
-    </a>
+    <span tabIndex={-1} aria-role="tab" aria-label={alternate} className={asPath === to ? 'active' : 'no-active'}>
+      <StyledLink href={to}>{children}</StyledLink>
+    </span>
   );
 };
 
