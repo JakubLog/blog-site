@@ -43,7 +43,8 @@ export const Items = styled.ul`
       background-color: white;
       z-index: -1;
     }
-    &:hover {
+    &:hover,
+    &:focus {
       opacity: 1;
     }
     &.active {
