@@ -25,7 +25,7 @@ export const Social = styled.a`
   justify-content: center;
   position: relative;
   opacity: 0.7;
-  transition: transform 0.2s ease-in-out, opacity 0.3s linear;
+  transition: transform 0.2s cubic-bezier(0.96, 0.61, 0.17, 0.81), opacity 0.3s cubic-bezier(0.67, 0.67, 0.12, 0.96);
   text-decoration: none;
   color: black;
   transform: scale(0.8);
@@ -40,7 +40,7 @@ export const Social = styled.a`
     background: #333;
     opacity: 0.2;
     transform: scale(0);
-    transition: transform 0.3s linear;
+    transition: transform 0.3s cubic-bezier(0.67, 0.67, 0.12, 0.96);
   }
   &:hover::before,
   &:focus::before {
