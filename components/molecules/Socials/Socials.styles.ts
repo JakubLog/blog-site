@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   z-index: 1000;
   @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
     bottom: 10px;
+    left: 0;
     width: 100%;
     right: auto;
     top: auto;
