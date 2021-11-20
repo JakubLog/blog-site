@@ -10,6 +10,8 @@ export const Site = styled.div`
     main {
       grid-column: 2;
       grid-row: 1/3;
+      box-shadow: inset 2px 0 20px -13px rgba(0, 0, 0, 0.75);
+      padding: 10px;
     }
   }
 `;
