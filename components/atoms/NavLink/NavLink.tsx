@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { StyledLink } from './NavLink.styles';
+import { StyledLink, MiddleLink } from './NavLink.styles';
 
 interface props {
   to: string;
@@ -13,9 +13,9 @@ const NavLink: React.FC<props> = ({ to, children, target }) => {
   return (
     <a className={asPath === to ? 'active' : 'no-active'}>
       <StyledLink href={to}>
-        <a target={target} rel="noreferrer">
+        <MiddleLink target={target} isTarget={target !== ''} rel="noreferrer" style={{ cursor: 'pointer' }}>
           {children}
-        </a>
+        </MiddleLink>
       </StyledLink>
     </a>
   );
