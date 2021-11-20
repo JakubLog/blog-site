@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Wrapper, Header, StyledTitle } from './Bar.styles';
 import Navigation from 'components/molecules/Navigation/Navigation';
+import Socials from 'components/molecules/Socials/Socials';
 
 interface props {
   isOpen: boolean;
@@ -15,6 +16,7 @@ const Bar: React.FC<props> = ({ isOpen }) => {
         <StyledTitle>Jakub Michał Fedoszczak</StyledTitle>
       </Header>
       <Navigation isOpen={isOpen} />
+      <Socials />
     </Wrapper>
   );
 };

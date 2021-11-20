@@ -6,10 +6,10 @@ export const Items = styled.ul`
   padding: 0;
   margin: 0;
   padding: 10px 15%;
-  & > a > a {
+  & > span > a {
     padding: 20px 40px;
   }
-  & > a {
+  & > span {
     padding: 20px 40px;
     display: block;
     width: fit-content;

@@ -1,4 +1,4 @@
-import { navigation } from 'assets/navigation';
+import { navigation } from 'assets/config/navigation';
 import { nanoid } from 'nanoid';
 import React from 'react';
 import { Wrapper, Items, Item } from './Navigation.styles';
@@ -11,8 +11,8 @@ const Navigation: React.FC<props> = ({ isOpen }) => {
   return (
     <Wrapper role="menu">
       <Items aria-label="Navigation" aria-expanded={isOpen} role="tablist">
-        {navigation.map(({ alt, to, blank, content }) => (
-          <Item key={nanoid()} aria-role="tab" aria-label={alt} to={to} target={blank ? '_blank' : ''}>
+        {navigation.map(({ alt, to, content }) => (
+          <Item key={nanoid()} alternate={alt} to={to}>
             {content}
           </Item>
         ))}
