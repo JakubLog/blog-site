@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div<{ isOpen: boolean }>`
   position: absolute;
   width: 100%;
+  box-shadow: 2px 0 20px -12px rgba(0, 0, 0, 0.5);
   min-height: 100vh;
   left: 0;
   top: 0;
