@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Jakub Michał Fedoszczak{Component?.title ? ` | ${Component?.title}` : null}</title>
       </Head>
       <MainTemplate>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </MainTemplate>
     </AppProviders>
   );
