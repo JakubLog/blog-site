@@ -4,3 +4,5 @@ export const navigation = [
   { alt: 'Just a bit text about me...', to: '/about', content: 'About' },
   { alt: 'Read about something interesting!', to: '/blog', content: 'Blog' }
 ];
+
+export const adminNavigation = [{ alt: 'Dashboard - Admin Panel', to: '/admin', content: 'Admin' }];
