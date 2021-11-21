@@ -13,7 +13,7 @@ const Navigation: React.FC<props> = ({ isOpen }) => {
 
   return (
     <Wrapper role="menu">
-      <Items aria-label="Navigation" aria-expanded={isOpen} role="tablist">
+      <Items aria-label="Navigation" role="tablist">
         <UserLinks />
         {user && <AdminLinks />}
       </Items>

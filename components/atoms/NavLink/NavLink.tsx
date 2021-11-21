@@ -11,7 +11,7 @@ const NavLink: React.FC<props> = ({ to, children, alternate }) => {
   const { asPath } = useRouter();
 
   return (
-    <span tabIndex={-1} aria-role="tab" aria-label={alternate} className={asPath === to ? 'active' : 'no-active'}>
+    <span tabIndex={-1} aria-role="link" aria-label={alternate} className={asPath === to ? 'active' : 'no-active'}>
       <StyledLink href={to}>{children}</StyledLink>
     </span>
   );

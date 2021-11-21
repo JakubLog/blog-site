@@ -7,7 +7,7 @@ interface props {
 
 const Button: React.FC<props> = ({ children, isNav }) => {
   return (
-    <Wrapper isNav>
+    <Wrapper isNav={isNav}>
       <span>{children}</span>
     </Wrapper>
   );
