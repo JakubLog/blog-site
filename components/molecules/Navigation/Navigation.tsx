@@ -8,7 +8,7 @@ interface props {
   isOpen: boolean;
 }
 
-const Navigation: React.FC<props> = ({ isOpen }) => {
+const Navigation: React.FC<props> = () => {
   const { user } = useUser();
 
   return (
