@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const Site = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   background-color: #eee;
   @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
     display: grid;
+    height: 100vh;
     grid-template-columns: 500px 1fr;
     grid-template-rows: 1fr 80px;
     main {
@@ -23,14 +24,14 @@ export const NavButton = styled.button<{ isOpen: boolean }>`
   box-shadow: 0 2px 20px -13px rgba(0, 0, 0, 0.5);
   color: ${({ theme }) => theme.colors.secondaryDark};
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   top: 15px;
   left: 15px;
   height: 60px;
   width: 60px;
   border-radius: 5px;
   overflow: hidden;
-  z-index: 1100;
+  z-index: 10000;
   span {
     display: block;
     position: absolute;

@@ -2,7 +2,7 @@ import { Title } from 'components/atoms/Title/Title';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div<{ isOpen: boolean }>`
-  position: absolute;
+  position: fixed;
   width: 100%;
   min-height: 100vh;
   left: 0;
@@ -12,7 +12,7 @@ export const Wrapper = styled.div<{ isOpen: boolean }>`
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100%')});
   display: grid;
   grid-template-rows: 300px auto;
-  z-index: 1000;
+  z-index: 9999;
   align-content: center;
   @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
     position: relative;

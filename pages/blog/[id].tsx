@@ -1,21 +1,32 @@
+/* eslint-disable prettier/prettier */
 import axios from 'axios';
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import React, { useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import { Wrapper, StyledTitle, Content } from 'styles/Article.styles';
 
 interface props {
   article: {
     id: string;
     title: string;
     content: string;
+    category: string;
   };
 }
 
-const BlogID: NextPage<props> = ({ article }) => {
+const BlogID: NextPage<props> = ({ article: { title, content, category } }) => {
   useEffect(() => {
-    document.title = `Jakub Michał Fedoszczak | ${article.title}`;
-  }, [article.title]);
+    document.title = `Jakub Michał Fedoszczak | ${title}`;
+  }, [title]);
 
-  return <div>Post number {article.id}</div>;
+  return (
+    <Wrapper>
+      <StyledTitle data-category={category}>{title}</StyledTitle>
+      <Content>
+        <ReactMarkdown>{content}</ReactMarkdown>
+      </Content>
+    </Wrapper>
+  );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
