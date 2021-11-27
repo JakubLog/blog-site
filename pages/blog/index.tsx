@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 import { NextPage } from 'next';
-import Link from 'next/link';
 import React from 'react';
+import { List, Wrapper } from 'styles/Articles.styles';
+import ArticleSnippet from '../../components/molecules/ArticleSnippet/ArticleSnippet';
+import { nanoid } from 'nanoid';
 
 interface props {
   allArticles: any;
@@ -9,15 +12,17 @@ interface props {
 
 const Blog: NextPage<props> = ({ allArticles }) => {
   return (
-    <div>
-      <ul>
+    <Wrapper>
+      <List>
         {allArticles.map((article: any) => (
-          <Link href={`/blog/${article.id}`}>
-            <p>Article numero {article.id}</p>
-          </Link>
+          <>
+            <ArticleSnippet data={article} key={nanoid()} />
+            <ArticleSnippet data={article} key={nanoid()} />
+            <ArticleSnippet data={article} key={nanoid()} />
+          </>
         ))}
-      </ul>
-    </div>
+      </List>
+    </Wrapper>
   );
 };
 Blog.title = 'Blog';
