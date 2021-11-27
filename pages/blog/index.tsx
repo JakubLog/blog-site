@@ -14,12 +14,8 @@ const Blog: NextPage<props> = ({ allArticles }) => {
   return (
     <Wrapper>
       <List>
-        {allArticles.map((article: any) => (
-          <>
-            <ArticleSnippet data={article} key={nanoid()} />
-            <ArticleSnippet data={article} key={nanoid()} />
-            <ArticleSnippet data={article} key={nanoid()} />
-          </>
+        {allArticles.map((article: any, i: number) => (
+          <ArticleSnippet data={article} key={nanoid()} isNew={i === 0} />
         ))}
       </List>
     </Wrapper>
@@ -33,9 +29,10 @@ export const getServerSideProps = async () => {
     { table: 'articles' },
     { headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` } }
   );
+  const preparedArticles = allArticles.data.records.reverse();
 
   return {
-    props: { allArticles: allArticles.data.records }
+    props: { allArticles: preparedArticles }
   };
 };
 

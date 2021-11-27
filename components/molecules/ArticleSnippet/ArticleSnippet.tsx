@@ -10,9 +10,10 @@ interface props {
     category: string;
     date: string;
   };
+  isNew: boolean;
 }
 
-const ArticleSnippet: React.FC<props> = ({ data: { title, description, category, id, date } }) => {
+const ArticleSnippet: React.FC<props> = ({ data: { title, description, category, id, date }, isNew }) => {
   const { push } = useRouter();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -23,7 +24,7 @@ const ArticleSnippet: React.FC<props> = ({ data: { title, description, category,
   };
 
   return (
-    <Wrapper onKeyDown={handlePostClick} onClick={handlePostClick} tabIndex={1}>
+    <Wrapper isNew={isNew} onKeyDown={handlePostClick} onClick={handlePostClick} tabIndex={1}>
       <StyledTitle data-category={category}>{title}</StyledTitle>
       <Description>{description}</Description>
       <Date>{date}</Date>

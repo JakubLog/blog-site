@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Title } from '../../atoms/Title/Title';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ isNew: boolean }>`
   list-style-type: none;
   background-color: #fff;
   border-radius: 15px;
@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   transition: border 0.3s cubic-bezier(0.71, 0.69, 0.26, 0.85);
   border: 3px solid #fff;
   position: relative;
+  z-index: 10;
 
   &:hover,
   &:focus {
@@ -19,8 +20,32 @@ export const Wrapper = styled.div`
     border: 3px solid ${({ theme }) => theme.colors.secondary};
   }
 
+  ${({ isNew, theme }) =>
+    isNew
+      ? `
+    &::after {
+      content: "New";
+      position: absolute; 
+      right: 15px;
+      top: -28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 25px;
+      background-color: ${theme.colors.secondary};
+      border-radius: 6px 6px 0 0;
+      box-shadow: inset 0 -10px 25px -18px black;
+      color: ${theme.colors.primary};
+      
+    }
+  `
+      : null}
   &:not(:last-child) {
     margin-bottom: 20px;
+    @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
+      margin-bottom: 0;
+    }
   }
 `;
 
