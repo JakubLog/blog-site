@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@auth0/nextjs-auth0': ^1.6.1
   '@types/node': 16.11.7
+  '@types/nprogress': ^0.2.0
   '@types/react': 17.0.34
   '@types/styled-components': ^5.1.15
   '@typescript-eslint/eslint-plugin': ^5.4.0
@@ -14,6 +15,7 @@ specifiers:
   eslint-plugin-prettier: ^4.0.0
   nanoid: ^3.1.30
   next: 12.0.3
+  nprogress: ^0.2.0
   prettier: ^2.4.1
   react: 17.0.2
   react-dom: 17.0.2
@@ -27,6 +29,7 @@ dependencies:
   axios: 0.24.0
   nanoid: 3.1.30
   next: 12.0.3_react-dom@17.0.2+react@17.0.2
+  nprogress: 0.2.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-markdown: 7.1.0_27d7f75f5fffc1228c129be468caca5c
@@ -34,6 +37,7 @@ dependencies:
 
 devDependencies:
   '@types/node': 16.11.7
+  '@types/nprogress': 0.2.0
   '@types/react': 17.0.34
   '@types/styled-components': 5.1.15
   '@typescript-eslint/eslint-plugin': 5.4.0_2e9c5db745a32be551690d83b5446a92
@@ -576,6 +580,10 @@ packages:
 
   /@types/node/16.11.7:
     resolution: {integrity: sha512-QB5D2sqfSjCmTuWcBWyJ+/44bcjO7VbjSbOE0ucoVbAsSNQc4Lt6QkgkVXkTDwkL4z/beecZNDvVX15D4P8Jbw==}
+
+  /@types/nprogress/0.2.0:
+    resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
+    dev: true
 
   /@types/prop-types/15.7.4:
     resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==}
@@ -3032,6 +3040,10 @@ packages:
   /normalize-url/6.1.0:
     resolution: {integrity: sha512-DlL+XwOy3NxAQ8xuC0okPgK46iuVNAK01YN7RueYBqqFeGsBjV9XmCAzAdgt+667bCl5kPh9EqKKDwnaPG1I7A==}
     engines: {node: '>=10'}
+    dev: false
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha1-y480xTIT2JVyP8urkH6UIq28r7E=}
     dev: false
 
   /object-assign/4.1.1:
