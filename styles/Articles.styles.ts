@@ -19,3 +19,9 @@ export const List = styled.ul`
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   }
 `;
+
+export const AddButton = styled.div`
+  grid-column: 1/3;
+  margin: 0 auto;
+  margin-top: 50px;
+`;

@@ -2,21 +2,33 @@
 import axios from 'axios';
 import { NextPage } from 'next';
 import React from 'react';
-import { List, Wrapper } from 'styles/Articles.styles';
+import { AddButton, List, Wrapper } from 'styles/Articles.styles';
 import ArticleSnippet from '../../components/molecules/ArticleSnippet/ArticleSnippet';
 import { nanoid } from 'nanoid';
+import { useUser } from '@auth0/nextjs-auth0';
+import Link from 'next/dist/client/link';
+import Button from '../../components/atoms/Button/Button';
 
 interface props {
   allArticles: any;
 }
 
 const Blog: NextPage<props> = ({ allArticles }) => {
+  const { user } = useUser();
+
   return (
     <Wrapper>
       <List>
         {allArticles.map((article: any, i: number) => (
           <ArticleSnippet data={article} key={nanoid()} isNew={i === 0} />
         ))}
+        {user && (
+          <Link href={'/admin'}>
+            <AddButton>
+              <Button>Dodaj artykuł</Button>
+            </AddButton>
+          </Link>
+        )}
       </List>
     </Wrapper>
   );
