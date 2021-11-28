@@ -25,7 +25,7 @@ const ArticleSnippet: React.FC<props> = ({ data: { title, description, category,
 
   return (
     <Wrapper isNew={isNew} onKeyDown={handlePostClick} onClick={handlePostClick} tabIndex={1}>
-      <StyledTitle data-category={category}>{title}</StyledTitle>
+      <StyledTitle data-category={`~ ${category}`}>{title}</StyledTitle>
       <Description>{description}</Description>
       <Date>{date}</Date>
     </Wrapper>
