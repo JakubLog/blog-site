@@ -28,6 +28,7 @@ export const Header = styled.header`
   justify-content: center;
   flex-direction: column;
   padding-block: 25px;
+
   & > span {
     border-radius: 50%;
     box-shadow: 0 2px 15px -8px #000;
@@ -38,6 +39,7 @@ export const StyledTitle = styled(Title)`
   font-size: clamp(26px, 2vw, 32px);
   position: relative;
   pointer-events: none;
+
   &::before {
     position: absolute;
     content: '';
@@ -50,6 +52,7 @@ export const StyledTitle = styled(Title)`
     z-index: -1;
     background-color: ${({ theme }) => theme.colors.secondary};
   }
+
   &::after {
     position: absolute;
     content: '~ Full-stack Developer ~';

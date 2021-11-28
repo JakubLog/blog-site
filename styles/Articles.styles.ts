@@ -17,11 +17,12 @@ export const List = styled.ul`
   @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-gap: 20px;
   }
 `;
 
 export const AddButton = styled.div`
   grid-column: 1/3;
-  margin: 0 auto;
-  margin-top: 50px;
+  width: fit-content;
+  margin: 50px auto 0;
 `;
