@@ -52,7 +52,7 @@ export const StyledTitle = styled(Title)`
     &::before {
       width: auto;
       bottom: -20px;
-      left: 0px;
+      left: 0;
       font-size: 16px;
       top: auto;
       transform: none;
@@ -72,8 +72,7 @@ export const Content = styled.div`
   h5,
   h6 {
     border-left: 15px ${({ theme }) => theme.colors.secondaryDark} solid;
-    padding: 7px 0;
-    padding-left: 12px;
+    padding: 7px 0 7px 12px;
     background-color: rgba(0, 90, 0, 0.1);
   }
 
@@ -122,8 +121,8 @@ export const Content = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
-    margin: 0;
     padding: 0;
+    margin: 30px 0 0;
     border: none;
     h1,
     h2,

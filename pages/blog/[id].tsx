@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import axios from 'axios';
-import { addHeaderIds, addHeaderTab, getArticleRoot, getHeaders, updateURL } from 'helpers/article';
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
+import { addHeaderIds, addHeaderTab, getHeaders, updateURL } from 'helpers/article';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import React, { useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Wrapper, StyledTitle, Content } from 'styles/Article.styles';
+import { Content, StyledTitle, Wrapper } from 'styles/Article.styles';
 
 interface props {
   article: {
@@ -48,7 +48,7 @@ const BlogID: NextPage<props> = ({ article: { title, content, category } }) => {
   return (
     <Wrapper>
       <StyledTitle data-category={category}>{title}</StyledTitle>
-      <Content id="article">
+      <Content id='article'>
         <ReactMarkdown>{content}</ReactMarkdown>
       </Content>
     </Wrapper>
