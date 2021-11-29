@@ -44,6 +44,7 @@ const BlogID: NextPage<props> = ({ article: { title, content, category } }) => {
       observer.current.disconnect();
     };
   }, []);
+  
 
   return (
     <Wrapper>

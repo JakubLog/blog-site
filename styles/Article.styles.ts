@@ -120,6 +120,14 @@ export const Content = styled.div`
     }
   }
 
+  img {
+    display: block;
+    object-fit: cover;
+    width: min(400px, 100%);
+    margin: 25px auto;
+    box-shadow: 0 3px 25px -7px rgba(0, 0, 0, 0.5);
+  }
+
   @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
     padding: 0;
     margin: 30px 0 0;
@@ -144,6 +152,11 @@ export const Content = styled.div`
     p {
       padding-right: 20px;
       font-size: 18px;
+    }
+
+    img {
+      width: min(600px, 100%);
+      margin: 40px auto;
     }
   }
 `;
