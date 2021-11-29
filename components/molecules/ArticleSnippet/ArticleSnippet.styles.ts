@@ -8,21 +8,25 @@ export const Wrapper = styled.div<{ isNew: boolean }>`
   margin-inline: 40px;
   box-shadow: 0 1px 30px -10px rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
-  transition: border 0.3s cubic-bezier(0.71, 0.69, 0.26, 0.85);
+  transition: border 0.3s cubic-bezier(0.71, 0.69, 0.26, 0.85), opacity 0.2s cubic-bezier(0.57, 0.63, 0, 1.01);
   border: 3px solid #fff;
   position: relative;
   z-index: 10;
+  opacity: 0.8;
 
   &:hover,
   &:focus {
     outline: none;
     cursor: pointer;
     border: 3px solid ${({ theme }) => theme.colors.secondary};
+    opacity: 1;
   }
 
   ${({ isNew, theme }) =>
     isNew
       ? `
+      opacity: 1;
+      box-shadow: 0 2px 35px -10px rgba(0, 0, 0, 0.1);
     &::after {
       content: "New";
       position: absolute; 
@@ -37,7 +41,6 @@ export const Wrapper = styled.div<{ isNew: boolean }>`
       border-radius: 6px 6px 0 0;
       box-shadow: inset 0 -10px 25px -18px black;
       color: ${theme.colors.primary};
-      
     }
   `
       : null}
