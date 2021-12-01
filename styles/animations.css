@@ -1,0 +1,12 @@
+@keyframes fadeInSnippet {
+    from {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+}
+
+.appear-animation {
+    --delay: 0;
+    animation: fadeInSnippet 0.5s 1 cubic-bezier(.57, .64, .34, .65);
+    animation-delay: var(--delay);
+}

@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import 'styles/nprogress.css';
 import 'nprogress/nprogress.css';
+import 'styles/animations.css';
 
 const handleStartLoading = () => {
   NProgress.start();
