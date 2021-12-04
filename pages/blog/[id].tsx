@@ -72,7 +72,9 @@ const BlogID: NextPage<props> = ({ article }) => {
     <Wrapper>
       <StyledTitle data-category={article.category}>{article.title}</StyledTitle>
       <Content id='article'>
-        <ReactMarkdown>{article.content}</ReactMarkdown>
+        <ReactMarkdown>
+          {article.content}
+        </ReactMarkdown>
       </Content>
       {article.sources && <Sources data={article.sources} />}
     </Wrapper>

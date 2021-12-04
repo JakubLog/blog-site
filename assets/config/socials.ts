@@ -1,9 +1,9 @@
-import Facebook from 'public/svg/Facebook.svg';
-import Instagram from 'public/svg/Instagram.svg';
-import GitHub from 'public/svg/GitHub.svg';
-import YouTube from 'public/svg/YouTube.svg';
-import Twitter from 'public/svg/Twitter.svg';
-import Gmail from 'public/svg/Gmail.svg';
+import Facebook from 'static/svg/Facebook.svg';
+import Instagram from 'static/svg/Instagram.svg';
+import GitHub from 'static/svg/GitHub.svg';
+import YouTube from 'static/svg/YouTube.svg';
+import Twitter from 'static/svg/Twitter.svg';
+import Gmail from 'static/svg/Gmail.svg';
 
 export const socials = [
   { name: 'Facebook', svg: Facebook, link: 'https://www.facebook.com/jakublogg' },
