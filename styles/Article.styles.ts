@@ -165,6 +165,25 @@ export const Content = styled.div`
     }
   }
 
+  cite {
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding-inline: 5px;
+    opacity: 0.8;
+
+    &::before {
+      content: '"';
+      padding-right: 2px;
+      color: ${({ theme }) => theme.colors.secondaryDark};
+    }
+
+    &::after {
+      content: '"';
+      padding-left: 2px;
+      color: ${({ theme }) => theme.colors.secondaryDark};
+    }
+  }
+
   @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
     padding: 0;
     margin: 30px 0 0;

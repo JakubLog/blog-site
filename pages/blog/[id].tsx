@@ -71,13 +71,19 @@ const BlogID: NextPage<props> = ({ article }) => {
 
   return (
     <Wrapper>
-      <StyledTitle data-category={article.category}>{article.title}</StyledTitle>
-      <Content id='article'>
-        <ReactMarkdown>
-          {article.content}
-        </ReactMarkdown>
-      </Content>
-      {article.sources && <Sources data={article.sources} />}
+      <article>
+        <header>
+          <StyledTitle data-category={article.category}>{article.title}</StyledTitle>
+        </header>
+        <section>
+          <Content id='article'>
+            <ReactMarkdown>
+              {article.content}
+            </ReactMarkdown>
+          </Content>
+        </section>
+        {article.sources && <section><Sources data={article.sources} /></section>}
+      </article>
     </Wrapper>
   );
 
