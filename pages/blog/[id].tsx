@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import { addHeaderIds, addHeaderTab, getHeaders, updateURL } from '../../helpers/article';
 import axios from 'axios';
 import Error404 from '../404';
+import Loading from '../../components/atoms/Loading/Loading';
 
 interface props {
   article: {
@@ -61,7 +62,7 @@ const BlogID: NextPage<props> = ({ article }) => {
   }, [article]);
 
   if (isFallback) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   if (article?.status === 'not-found') {
