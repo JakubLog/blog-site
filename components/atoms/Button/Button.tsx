@@ -5,9 +5,9 @@ interface props {
   isNav?: boolean;
 }
 
-const Button: React.FC<props> = ({ children, isNav }) => {
+const Button: React.FC<props> = ({ children, isNav, ...rest }) => {
   return (
-    <Wrapper isNav={isNav}>
+    <Wrapper isNav={isNav} {...rest}>
       <span>{children}</span>
     </Wrapper>
   );

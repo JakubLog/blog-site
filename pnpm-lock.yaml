@@ -19,6 +19,7 @@ specifiers:
   prettier: ^2.4.1
   react: 17.0.2
   react-dom: 17.0.2
+  react-hook-form: ^7.20.5
   react-markdown: ^7.1.0
   styled-components: ^5.3.3
   typescript: 4.4.4
@@ -32,6 +33,7 @@ dependencies:
   nprogress: 0.2.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-hook-form: 7.20.5_react@17.0.2
   react-markdown: 7.1.0_27d7f75f5fffc1228c129be468caca5c
   styled-components: 5.3.3_react-dom@17.0.2+react@17.0.2
 
@@ -3420,6 +3422,15 @@ packages:
       object-assign: 4.1.1
       react: 17.0.2
       scheduler: 0.20.2
+    dev: false
+
+  /react-hook-form/7.20.5_react@17.0.2:
+    resolution: {integrity: sha512-xYeBmQW6oqxDYAYVWIoZYC7tRD6lJBJt9b8Rr1Mv/VhZ+ZUCy2IuXlm2YA9i0/zl0TKKxqBWQOxGEb3qyVIhMg==}
+    engines: {node: '>=12.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17
+    dependencies:
+      react: 17.0.2
     dev: false
 
   /react-is/16.13.1:
