@@ -11,12 +11,14 @@ import { TextArea } from '../components/atoms/TextArea/TextArea';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from 'components/atoms/ErrorMessage/ErrorMessage';
 import { Wrapper } from 'styles/Admin.styles';
+import axios from 'axios';
 
 interface postData {
   title: string;
   content: string;
   category: string;
   sources: string;
+  description: string;
 }
 
 const Dashboard: NextPage = () => {
@@ -26,9 +28,19 @@ const Dashboard: NextPage = () => {
     handleSubmit
   } = useForm();
 
-  const handlePost = ({ title, category, content, sources }: postData) => {
-    const preparedSources = JSON.parse(sources);
-    // Rest logic of adding post
+  const handlePost = async ({ title, category, description, content, sources }: postData) => {
+    const preparedSources = sources ? JSON.parse(sources) : null;
+    try {
+      await axios.post('/api/manage/post', {
+        title,
+        category,
+        description,
+        content,
+        sources: preparedSources
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -40,6 +52,8 @@ const Dashboard: NextPage = () => {
         <Form onSubmit={handleSubmit(handlePost)}>
           <Input placeholder="Title" {...register('title', { required: true })} />
           {errors.title && <ErrorMessage>To pole jest wymagane</ErrorMessage>}
+          <Input placeholder="Description" {...register('description', { required: true })} />
+          {errors.description && <ErrorMessage>To pole jest wymagane</ErrorMessage>}
           <Select {...register('category', { required: true })}>
             <option value="Brak kategorii" selected>
               Select Category
