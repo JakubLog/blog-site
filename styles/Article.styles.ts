@@ -217,7 +217,7 @@ export const Content = styled.div`
 
     blockquote {
       width: min(700px, 80%);
-      background: none;
+      background: white;
       border-right: 5px solid ${({ theme }) => theme.colors.secondary};
 
       &::before {
