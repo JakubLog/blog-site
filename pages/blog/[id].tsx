@@ -17,6 +17,7 @@ interface props {
     title: string;
     content: string;
     category: string;
+    friendly: string;
     sources?: {
       name: string;
       url: string;
@@ -100,7 +101,7 @@ export const getStaticPaths = async () => {
 
   const paths = allArticles.data.records.map((article: props['article']) => ({
     params: {
-      id: article.id.toString()
+      id: article.friendly?.toString() || 'not-found'
     }
   }));
 
@@ -110,15 +111,18 @@ export const getStaticPaths = async () => {
   };
 };
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const article = await axios.post(
+  const articles = await axios.post(
     'https://api.m3o.com/v1/db/Read',
-    { table: 'articles', id: params?.id as string | undefined || 1 },
+    { table: 'articles' },
     { headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` } }
   );
 
+  const article = articles.data.records.find((article: any) => article.friendly === params?.id);
+  if (!article) return { props: { article: { status: 'not-found' } } };
+
   return {
     props: {
-      article: article.data.records?.[0] || { status: 'not-found' }
+      article
     }
   };
 };

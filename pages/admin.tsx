@@ -12,6 +12,7 @@ import { useForm } from 'react-hook-form';
 import { ErrorMessage } from 'components/atoms/ErrorMessage/ErrorMessage';
 import { Wrapper } from 'styles/Admin.styles';
 import axios from 'axios';
+import { format } from 'date-fns';
 
 interface postData {
   title: string;
@@ -30,12 +31,15 @@ const Dashboard: NextPage = () => {
 
   const handlePost = async ({ title, category, description, content, sources }: postData) => {
     const preparedSources = sources ? JSON.parse(sources) : null;
+    const dateNow = format(new Date(), 'dd.MM.yyyy');
+    console.log(dateNow);
     try {
       await axios.post('/api/manage/post', {
         title,
         category,
         description,
         content,
+        date: dateNow,
         sources: preparedSources
       });
     } catch (err) {

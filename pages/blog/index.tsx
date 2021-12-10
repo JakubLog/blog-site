@@ -25,7 +25,7 @@ const Blog: NextPage<props> = ({ allArticles }) => {
         {user && (
           <Link href={'/admin'}>
             <AddButton>
-              <Button>Dodaj artykuł</Button>
+              <Button>+</Button>
             </AddButton>
           </Link>
         )}

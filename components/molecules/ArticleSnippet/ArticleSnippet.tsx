@@ -9,17 +9,18 @@ interface props {
     description: string;
     category: string;
     date: string;
+    friendly: string;
   };
   isNew: boolean;
 }
 
-const ArticleSnippet: React.FC<props> = ({ data: { title, description, category, id, date }, isNew }) => {
+const ArticleSnippet: React.FC<props> = ({ data: { title, description, category, date, friendly }, isNew }) => {
   const { push } = useRouter();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handlePostClick = (e: any) => {
     if (e.key !== 'Tab') {
-      push(`/blog/${id}`);
+      push(`/blog/${friendly}`);
     }
   };
 
