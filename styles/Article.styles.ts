@@ -31,9 +31,7 @@ export const StyledTitle = styled(Title)`
   }
 
   @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
-    margin: 0;
-    margin-top: 15px;
-    margin-bottom: 40px;
+    margin: 15px 0 40px;
     z-index: 100;
     line-height: 0.9;
     &::after {
