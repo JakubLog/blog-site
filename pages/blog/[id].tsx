@@ -9,6 +9,8 @@ import { addHeaderIds, addHeaderTab, getHeaders, updateURL } from '../../helpers
 import axios from 'axios';
 import Error404 from '../404';
 import Loading from '../../components/atoms/Loading/Loading';
+import { DeleteElement } from '../../components/atoms/DeleteElement/DeleteElement';
+import { useUser } from '@auth0/nextjs-auth0';
 
 interface props {
   article: {
@@ -26,7 +28,9 @@ interface props {
 }
 
 const BlogID: NextPage<props> = ({ article }) => {
-  const { isFallback } = useRouter();
+  const { isFallback, push } = useRouter();
+  const { user } = useUser();
+
   // eslint-disable-next-line
   const observer = useRef<any>(null);
   useEffect(() => {
@@ -70,8 +74,18 @@ const BlogID: NextPage<props> = ({ article }) => {
     return <Error404 />;
   }
 
+  const deletePost = async () => {
+    await axios.delete('/api/manage/post', {
+      data: {
+        id: article.id
+      }
+    });
+    push('/blog');
+  };
+
   return (
     <Wrapper>
+      {user && <DeleteElement onClick={deletePost}>Usuń posta</DeleteElement>}
       <article>
         <header>
           <StyledTitle data-category={article.category}>{article.title}</StyledTitle>

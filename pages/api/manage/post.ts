@@ -39,6 +39,26 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         message: 'Missing title or description'
       });
     }
+  } else if (req.method === 'DELETE') {
+    const id = req.body.id;
+    if (id) {
+      const response = await axios.post(
+        'https://api.m3o.com/v1/db/Delete',
+        {
+          table: 'articles',
+          id
+        },
+        { headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` } }
+      );
+      res.status(200).json({
+        message: 'Post deleted',
+        deletedPost: response.data
+      });
+    } else {
+      res.status(400).json({
+        message: 'Missing id'
+      });
+    }
   } else {
     res.status(405).json({ message: 'Method Not Allowed' });
   }
