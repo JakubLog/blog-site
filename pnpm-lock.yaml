@@ -5,6 +5,7 @@ specifiers:
   '@types/node': 16.11.7
   '@types/nprogress': ^0.2.0
   '@types/react': 17.0.34
+  '@types/react-mailchimp-subscribe': ^2.1.1
   '@types/styled-components': ^5.1.15
   '@typescript-eslint/eslint-plugin': ^5.4.0
   '@typescript-eslint/parser': ^5.4.0
@@ -21,6 +22,7 @@ specifiers:
   react: 17.0.2
   react-dom: 17.0.2
   react-hook-form: ^7.20.5
+  react-mailchimp-subscribe: ^2.1.3
   react-markdown: ^7.1.0
   styled-components: ^5.3.3
   typescript: 4.4.4
@@ -36,6 +38,7 @@ dependencies:
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-hook-form: 7.20.5_react@17.0.2
+  react-mailchimp-subscribe: 2.1.3_react@17.0.2
   react-markdown: 7.1.0_27d7f75f5fffc1228c129be468caca5c
   styled-components: 5.3.3_react-dom@17.0.2+react@17.0.2
 
@@ -43,6 +46,7 @@ devDependencies:
   '@types/node': 16.11.7
   '@types/nprogress': 0.2.0
   '@types/react': 17.0.34
+  '@types/react-mailchimp-subscribe': 2.1.1
   '@types/styled-components': 5.1.15
   '@typescript-eslint/eslint-plugin': 5.4.0_2e9c5db745a32be551690d83b5446a92
   '@typescript-eslint/parser': 5.4.0_eslint@7.32.0+typescript@4.4.4
@@ -591,6 +595,12 @@ packages:
 
   /@types/prop-types/15.7.4:
     resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==}
+    dev: true
+
+  /@types/react-mailchimp-subscribe/2.1.1:
+    resolution: {integrity: sha512-ic6ruLaDdlgwj94CeML/FGHiMacXB92bZbmJimNKVzrc147/hORPCy3nZ4MHGKBiZNVqi4NBmX1pN6i3Kbg1JA==}
+    dependencies:
+      '@types/react': 17.0.34
     dev: true
 
   /@types/react/17.0.34:
@@ -2525,6 +2535,12 @@ packages:
     dependencies:
       minimist: 1.2.5
 
+  /jsonp/0.2.1:
+    resolution: {integrity: sha1-pltPoPEL2nGaBUQep7lMVfPhW64=}
+    dependencies:
+      debug: 2.6.9
+    dev: false
+
   /jsx-ast-utils/3.2.1:
     resolution: {integrity: sha512-uP5vu8xfy2F9A6LGC22KO7e2/vGTS1MhP+18f++ZNlf0Ohaxbc9nIEwHAsejlJKyzfZzU5UIhe5ItYkitcZnZA==}
     engines: {node: '>=4.0'}
@@ -3447,6 +3463,17 @@ packages:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
     dev: false
 
+  /react-mailchimp-subscribe/2.1.3_react@17.0.2:
+    resolution: {integrity: sha512-ZRuPZMnX/9pHQLnAQavsgB5xIF+gNqjNCCq1vvTs23cn+93W2oOp17qjg3LpDBEt1HJi6IHXMwpKXn0taY8FHw==}
+    peerDependencies:
+      react: '>=15'
+    dependencies:
+      jsonp: 0.2.1
+      prop-types: 15.7.2
+      react: 17.0.2
+      to-querystring: 1.1.1
+    dev: false
+
   /react-markdown/7.1.0_27d7f75f5fffc1228c129be468caca5c:
     resolution: {integrity: sha512-hL8cLLkTydyoKlZWZOjlU6TvMYIw9qKLh1CCzVfnhKt/R/SnKVAqiyugetXY61CkjhBqJl2C5FdU3OwHYo7SrQ==}
     peerDependencies:
@@ -3928,6 +3955,10 @@ packages:
   /to-fast-properties/2.0.0:
     resolution: {integrity: sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=}
     engines: {node: '>=4'}
+    dev: false
+
+  /to-querystring/1.1.1:
+    resolution: {integrity: sha512-ZgIacl9TXAoT7sGXUYjQiy0MW7Tf/7CJQLt757hYHfXXc8JBzOVBMx4DckqKUO4hi36J72/m8UcH/GCHK+n97g==}
     dev: false
 
   /to-regex-range/5.0.1:

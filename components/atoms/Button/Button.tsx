@@ -3,6 +3,7 @@ import { Wrapper } from './Button.styles';
 
 interface props {
   isNav?: boolean;
+  disabled?: boolean;
 }
 
 const Button: React.FC<props> = ({ children, ...rest }) => {
