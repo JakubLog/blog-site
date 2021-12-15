@@ -182,6 +182,58 @@ export const Content = styled.div`
     }
   }
 
+  ul,
+  ol {
+    margin-block: 10px;
+    padding: 0 0 0 30px;
+
+    li {
+      list-style-type: none;
+      position: relative;
+      line-height: 1.2;
+      letter-spacing: 0.2px;
+
+      &::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: ${({ theme }) => theme.colors.secondaryDark};
+        position: absolute;
+        left: -15px;
+        top: 0;
+        transform: translateY(50%) rotate(45deg);
+      }
+
+      &::after {
+        content: '';
+        width: 5px;
+        height: 5px;
+        background: ${({ theme }) => theme.colors.secondary};
+        position: absolute;
+        left: -13px;
+        top: 5px;
+        transform: translateY(50%) rotate(45deg);
+      }
+
+      ul {
+        padding-left: 20px;
+        padding-top: 3px;
+      }
+
+      @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
+        font-size: 20px;
+        line-height: 1.5;
+        &::before {
+          top: 5px;
+        }
+
+        &::after {
+          top: 10px;
+        }
+      }
+    }
+  }
+
   @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
     padding: 0;
     margin: 30px 0 0;
