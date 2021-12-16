@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 import { NextPage } from 'next';
-import React from 'react';
-import { AddButton, List, Wrapper } from 'styles/Articles.styles';
+import React, { useState } from 'react';
+import { AddButton, List, PageButton, PageCounter, PageNavigation, Wrapper } from 'styles/Articles.styles';
 import ArticleSnippet from '../../components/molecules/ArticleSnippet/ArticleSnippet';
 import { nanoid } from 'nanoid';
 import { useUser } from '@auth0/nextjs-auth0';
 import Link from 'next/dist/client/link';
 import Button from '../../components/atoms/Button/Button';
+// @ts-ignore
+import paginate from 'paginatejson';
 
 interface props {
   allArticles: any;
@@ -15,13 +17,31 @@ interface props {
 
 const Blog: NextPage<props> = ({ allArticles }) => {
   const { user } = useUser();
+  const newArticles = [...
+    allArticles, ...allArticles, ...allArticles, ...allArticles];
+  const [articles, setArticles] = useState(paginate.paginate(newArticles, 1, 8));
+
+  console.log(articles);
+
+  const nextPage = () =>
+    setArticles(paginate.paginate(newArticles, articles.next, 8));
+
+  const prevPage = () =>
+    setArticles(paginate.paginate(newArticles, articles.prev, 8));
 
   return (
     <Wrapper>
       <List>
-        {allArticles.map((article: any, i: number) => (
-          <ArticleSnippet data={article} key={nanoid()} isNew={i === 0} />
+        {articles.items.map((article: any, i: number) => (
+          <ArticleSnippet data={article} key={nanoid()} isNew={i === 0 && articles.current === articles.first} />
         ))}
+        <nav>
+          <PageNavigation>
+            <PageButton onClick={prevPage} disabled={articles.current === 1}>Prev</PageButton>
+            <PageCounter>{articles.current} / {articles.last}</PageCounter>
+            <PageButton onClick={nextPage} disabled={articles.last === articles.current}>Next</PageButton>
+          </PageNavigation>
+        </nav>
         {user && (
           <Link href={'/admin'}>
             <AddButton>

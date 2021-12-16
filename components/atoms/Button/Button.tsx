@@ -4,6 +4,7 @@ import { Wrapper } from './Button.styles';
 interface props {
   isNav?: boolean;
   disabled?: boolean;
+  onClick?: () => void;
 }
 
 const Button: React.FC<props> = ({ children, ...rest }) => {
