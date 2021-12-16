@@ -37,4 +37,6 @@ const newsletter = () => {
   );
 };
 
+newsletter.title = 'Newsletter';
+
 export default newsletter;
