@@ -1,6 +1,30 @@
 import { Title } from 'components/atoms/Title/Title';
 import styled from 'styled-components';
 
+export const LogoutButton = styled.button`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 9px 19px;
+  background: rgba(255, 0, 0, 0.2);
+  border: 2px solid red;
+  border-radius: 12px;
+  box-shadow: 0 2px 20px -12px red;
+  color: red;
+  opacity: 0.6;
+  transition: opacity 0.2s cubic-bezier(0.23, 0.86, 0.56, 0.56);
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
+    padding: 5px 15px;
+    right: 17px;
+  }
+`;
+
 export const Wrapper = styled.div<{ isOpen: boolean }>`
   position: fixed;
   width: 100%;
