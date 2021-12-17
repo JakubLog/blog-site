@@ -25,6 +25,7 @@ specifiers:
   react-hook-form: ^7.20.5
   react-mailchimp-subscribe: ^2.1.3
   react-markdown: ^7.1.0
+  react-share: ^4.4.0
   styled-components: ^5.3.3
   typescript: 4.4.4
   typescript-eslint: ^0.0.1-alpha.0
@@ -42,6 +43,7 @@ dependencies:
   react-hook-form: 7.20.5_react@17.0.2
   react-mailchimp-subscribe: 2.1.3_react@17.0.2
   react-markdown: 7.1.0_27d7f75f5fffc1228c129be468caca5c
+  react-share: 4.4.0_react@17.0.2
   styled-components: 5.3.3_react-dom@17.0.2+react@17.0.2
 
 devDependencies:
@@ -3750,6 +3752,17 @@ packages:
   /react-refresh/0.8.3:
     resolution: {integrity: sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /react-share/4.4.0_react@17.0.2:
+    resolution: {integrity: sha512-POe8Ge/JT9Ew9iyW7CiYsCCWCb8uMJWqFl9S7W0fJ/oH5gBJNzukH0bL5vSr17KKG5h15d3GfKaoviI22BKeYA==}
+    engines: {node: '>=6.9.0', npm: '>=5.0.0'}
+    peerDependencies:
+      react: ^16.3.0 || ^17
+    dependencies:
+      classnames: 2.2.6
+      jsonp: 0.2.1
+      react: 17.0.2
     dev: false
 
   /react/17.0.2:

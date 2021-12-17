@@ -11,6 +11,7 @@ import Error404 from '../404';
 import Loading from '../../components/atoms/Loading/Loading';
 import { DeleteElement } from '../../components/atoms/DeleteElement/DeleteElement';
 import { useUser } from '@auth0/nextjs-auth0';
+import ShareIcons from '../../components/molecules/ShareIcons/ShareIcons';
 
 interface props {
   article: {
@@ -99,6 +100,9 @@ const BlogID: NextPage<props> = ({ article }) => {
         </section>
         {article.sources && <section><Sources data={article.sources} /></section>}
       </article>
+      <aside>
+        <ShareIcons />
+      </aside>
     </Wrapper>
   );
 
