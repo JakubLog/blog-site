@@ -32,7 +32,6 @@ const Dashboard: NextPage = () => {
   const handlePost = async ({ title, category, description, content, sources }: postData) => {
     const preparedSources = sources ? JSON.parse(sources) : null;
     const dateNow = format(new Date(), 'dd.MM.yyyy');
-    console.log(dateNow);
     try {
       await axios.post('/api/manage/post', {
         title,
