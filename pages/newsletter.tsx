@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from './List';
+import { List } from '../components/atoms/List/List';
 import { Wrapper } from 'styles/Newsletter.styles';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import NewsletterForm from './NewsletterForm';

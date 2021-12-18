@@ -7,6 +7,7 @@ export const List = styled.ul`
   li {
     list-style-type: none;
     position: relative;
+    padding-left: 6px;
     line-height: 1.3;
     letter-spacing: 0.2px;
 
