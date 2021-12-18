@@ -19,8 +19,6 @@ const Blog: NextPage<props> = ({ allArticles }) => {
   const { user } = useUser();
   const [articles, setArticles] = useState(paginate.paginate(allArticles, 1, 8));
 
-  console.log(articles);
-
   const nextPage = () =>
     setArticles(paginate.paginate(allArticles, articles.next, 8));
 
