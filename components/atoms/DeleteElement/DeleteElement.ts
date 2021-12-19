@@ -3,10 +3,8 @@ import styled from 'styled-components';
 export const DeleteElement = styled.button`
   position: absolute;
   top: 15px;
-  right: 15px;
+  right: 30px;
   background: red;
-  width: 125px;
-  height: 30px;
   border-radius: 10px;
   opacity: 0.6;
   border: none;

@@ -12,6 +12,7 @@ import Loading from '../../components/atoms/Loading/Loading';
 import { DeleteElement } from '../../components/atoms/DeleteElement/DeleteElement';
 import { useUser } from '@auth0/nextjs-auth0';
 import ShareIcons from '../../components/molecules/ShareIcons/ShareIcons';
+import Image from 'next/image';
 
 interface props {
   article: {
@@ -86,7 +87,10 @@ const BlogID: NextPage<props> = ({ article }) => {
 
   return (
     <Wrapper>
-      {user && <DeleteElement onClick={deletePost}>Usuń posta</DeleteElement>}
+      {user && <DeleteElement onClick={deletePost}>
+        <Image src='https://cdn.iconscout.com/icon/free/png-256/delete-trash-bin-dustbin-recycle-useless-30494.png'
+               width={40} height={40} />
+      </DeleteElement>}
       <article>
         <header>
           <StyledTitle data-category={article.category}>{article.title}</StyledTitle>
