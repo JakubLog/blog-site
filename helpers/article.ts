@@ -14,7 +14,10 @@ const reducer = (fn: (header: HTMLHeadingElement) => void) => {
 export const addHeaderIds = () => {
   reducer((header) => {
     if (header?.textContent !== null) {
-      const id = header.textContent.replace(/\W/g, '-');
+      const id = header.textContent
+        .replace(/([.,!?-])/g, '')
+        .replaceAll(' ', '-')
+        .toLowerCase();
       header.setAttribute('id', id);
     }
   });
