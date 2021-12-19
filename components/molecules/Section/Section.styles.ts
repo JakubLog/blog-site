@@ -29,6 +29,14 @@ export const Wrapper = styled.div`
       font-size: clamp(16px, 2vw, 18px);
     }
 
+    ul {
+      margin-block: 10px;
+    }
+
+    li {
+      font-size: clamp(16px, 2vw, 18px) !important;
+    }
+
     a {
       text-decoration: underline;
       opacity: 0.8;
