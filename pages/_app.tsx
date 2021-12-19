@@ -10,9 +10,11 @@ import NProgress from 'nprogress';
 import 'styles/nprogress.css';
 import 'nprogress/nprogress.css';
 import 'styles/animations.css';
+import { pageview } from '../helpers/ga';
 
-const handleStartLoading = () => {
+const handleStartLoading = (url: any) => {
   NProgress.start();
+  pageview(url);
 };
 const handleStopLoading = () => {
   NProgress.done();

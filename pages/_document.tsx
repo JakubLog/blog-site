@@ -36,6 +36,20 @@ class MyDocument extends Document {
           <meta property="og:description" content="Web Developer's blog with passion to IT. Security, programming, machine learning and more!" />
           <meta property="og:locale" content="pl_PL" />
           <meta property="og:type" content="website" />
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `
+            }}
+          />
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="og:url" content="https://www.fedoszczak.ovh/" />
           <link rel="canonical" href="https://www.fedoszczak.ovh/" />
