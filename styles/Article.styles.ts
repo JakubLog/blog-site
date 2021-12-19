@@ -139,6 +139,15 @@ export const Content = styled.div`
     position: relative;
     margin-bottom: 50px;
 
+    strong {
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      padding: 0;
+    }
+
     &::before {
       content: '“';
       position: absolute;
