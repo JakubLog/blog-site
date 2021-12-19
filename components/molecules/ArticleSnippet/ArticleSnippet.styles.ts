@@ -7,7 +7,7 @@ export const Wrapper = styled.div<{ isNew: boolean }>`
   border-radius: 15px;
   margin-inline: 40px;
   box-shadow: 0 1px 30px -10px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
+  padding: 10px 20px 15px;
   transition: border 0.3s cubic-bezier(0.71, 0.69, 0.26, 0.85), opacity 0.2s cubic-bezier(0.57, 0.63, 0, 1.01);
   border: 3px solid #fff;
   position: relative;
