@@ -4,7 +4,35 @@ import axios from 'axios';
 import { format } from 'date-fns';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'POST') {
+  if (req.method === 'GET') {
+    const response = {
+      records: [],
+      message: 'Something went wrong with articles.',
+      codeStatus: 500
+    };
+    if (req.query.id) {
+      const { id } = req.query;
+      const {
+        data: { records: resRecords }
+      } = await axios.get(`https://api.m3o.com/v1/db/Read?table=articles?id=${id}`, {
+        headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` }
+      });
+      response.records = resRecords;
+      response.message = resRecords.length <= 0 ? "There's no article with this ID!" : 'Successfully retrieved article';
+      response.codeStatus = resRecords.length <= 0 ? 404 : 200;
+    } else {
+      const {
+        data: { records: resRecords }
+      } = await axios.get('https://api.m3o.com/v1/db/Read?table=articles', {
+        headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` }
+      });
+      response.records = resRecords;
+      response.message = resRecords.length <= 0 ? "There's no articles in DB!" : 'Successfully retrieved articles';
+      response.codeStatus = 200;
+    }
+
+    res.status(response.codeStatus).json(response);
+  } else if (req.method === 'POST') {
     if (req.body.title && req.body.description) {
       try {
         const cleanTitle = req.body.title.trim().replaceAll('!', '').replaceAll('?', '');
