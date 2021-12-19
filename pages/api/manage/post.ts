@@ -7,7 +7,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     if (req.body.title && req.body.description) {
       try {
-        const generatedUrl = req.body.title.replace(/\s/g, '-').toLowerCase();
+        const cleanTitle = req.body.title.trim().replaceAll('!', '').replaceAll('?', '');
+        const generatedUrl = cleanTitle.replace(/\s/g, '-').toLowerCase();
 
         const preparedPostObject = {
           title: req.body.title,
