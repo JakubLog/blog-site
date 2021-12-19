@@ -3,14 +3,13 @@ import styled from 'styled-components';
 
 export const LogoutButton = styled.button`
   position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 9px 19px;
-  background: rgba(255, 0, 0, 0.2);
-  border: 2px solid red;
+  left: 10px;
+  top: 75px;
+  padding: 10px;
+  background: transparent;
+  border: none;
   border-radius: 12px;
-  box-shadow: 0 2px 20px -12px red;
-  color: red;
+  filter: drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.5));
   opacity: 0.6;
   transition: opacity 0.2s cubic-bezier(0.23, 0.86, 0.56, 0.56);
 
@@ -21,7 +20,9 @@ export const LogoutButton = styled.button`
 
   @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
     padding: 5px 15px;
-    right: 17px;
+    right: 10px;
+    left: auto;
+    top: 10px;
   }
 `;
 
