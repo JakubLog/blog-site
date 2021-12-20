@@ -35,15 +35,20 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   } else if (req.method === 'POST') {
     if (req.body.title && req.body.description) {
       try {
-        const cleanTitle = req.body.title.trim().replaceAll('!', '').replaceAll('?', '');
+        const { title, description, content, sources, category } = req.body;
+        if (sources !== null && !Array.isArray(sources)) {
+          new Error('Wrong type of the sources!');
+        }
+
+        const cleanTitle = title.trim().replaceAll('!', '').replaceAll('?', '');
         const generatedUrl = cleanTitle.replace(/\s/g, '-').toLowerCase();
 
         const preparedPostObject = {
-          title: req.body.title,
-          description: req.body.description,
-          content: req.body.content,
-          sources: req.body.sources,
-          category: req.body.category,
+          title: title,
+          description: description,
+          content: content,
+          sources: sources,
+          category: category,
           date: format(new Date(), 'dd-MM-yyyy'),
           friendly: generatedUrl
         };
