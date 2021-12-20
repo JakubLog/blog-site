@@ -43,7 +43,8 @@ const Dashboard: NextPage<props> = ({ articles }) => {
   const {
     register,
     formState: { errors },
-    handleSubmit
+    handleSubmit,
+    reset
   } = useForm();
   const { push, reload } = useRouter();
   const [isCreated, setCreatedState] = useState<undefined | string>(undefined);
@@ -63,6 +64,7 @@ const Dashboard: NextPage<props> = ({ articles }) => {
         sources: preparedSources
       });
       setCreatedState(newPost.friendly);
+      reset();
     } catch (err) {
       console.error(err);
     }
