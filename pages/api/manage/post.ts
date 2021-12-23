@@ -47,7 +47,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           title: title,
           description: description,
           content: content,
-          sources: sources,
+          sources: sources ? JSON.parse(sources) : null,
           category: category,
           date: format(new Date(), 'dd-MM-yyyy'),
           friendly: generatedUrl

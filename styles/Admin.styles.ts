@@ -23,7 +23,7 @@ export const TableOfPosts = styled.div`
   }
 `;
 
-export const PostRecord = styled.div<{ danger: boolean }>`
+export const PostRecord = styled.div<{ danger?: boolean }>`
   width: 100%;
   padding: 15px 20px;
   border-radius: 10px;
