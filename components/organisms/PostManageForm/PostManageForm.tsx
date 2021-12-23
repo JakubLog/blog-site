@@ -64,9 +64,9 @@ const PostManageForm: React.FC = () => {
           'Friendly-url': generatedUrl,
           'Published?': 'Not yet'
         });
+        setPostCreatedState(<p>Zaplanowano!</p>);
       }
       setCreatingState(false);
-      setPostCreatedState(<p>Zaplanowano!</p>);
       reset();
     } catch (err) {
       console.error(err);
