@@ -11,6 +11,8 @@ import 'styles/nprogress.css';
 import 'nprogress/nprogress.css';
 import 'styles/animations.css';
 import { pageview } from '../helpers/ga';
+import { AnimatePresence, motion } from 'framer-motion';
+import { routesVariant } from '../variants/Routing';
 
 const handleStartLoading = (url: any) => {
   NProgress.start();
@@ -40,7 +42,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Jakub Michał Fedoszczak{Component?.title ? ` | ${Component?.title}` : null}</title>
       </Head>
       <MainTemplate>
-        <Component {...pageProps} />
+        <AnimatePresence exitBeforeEnter>
+          <motion.div key={router.asPath} variants={routesVariant} initial="initial" animate="animate">
+            <Component {...pageProps} />
+          </motion.div>
+        </AnimatePresence>
       </MainTemplate>
     </AppProviders>
   );

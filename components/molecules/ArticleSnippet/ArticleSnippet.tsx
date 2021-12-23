@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { Date, Description, StyledTitle, Wrapper } from './ArticleSnippet.styles';
+import { snippetVariant } from '../../../variants/Snippets';
 
 interface props {
   data: {
@@ -25,7 +26,16 @@ const ArticleSnippet: React.FC<props> = ({ data: { title, description, category,
   };
 
   return (
-    <Wrapper isNew={isNew} className={'appear-animation'} onKeyDown={handlePostClick} onClick={handlePostClick} tabIndex={1}>
+    <Wrapper
+      variants={snippetVariant}
+      initial="initial"
+      animate="animate"
+      whileHover="hover"
+      isNew={isNew}
+      onKeyDown={handlePostClick}
+      onClick={handlePostClick}
+      tabIndex={1}
+    >
       <StyledTitle data-category={`~ ${category}`}>{title}</StyledTitle>
       <Description>{description}</Description>
       <Date>{date}</Date>

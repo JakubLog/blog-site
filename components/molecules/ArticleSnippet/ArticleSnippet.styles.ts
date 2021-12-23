@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { Title } from '../../atoms/Title/Title';
+import { motion } from 'framer-motion';
 
-export const Wrapper = styled.div<{ isNew: boolean }>`
+export const Wrapper = styled(motion.div)<{ isNew: boolean }>`
   list-style-type: none;
   background-color: #fff;
   border-radius: 15px;
