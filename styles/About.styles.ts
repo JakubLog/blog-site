@@ -27,5 +27,7 @@ export const Wrapper = styled.div`
 
   @media (min-width: ${({ theme }) => theme.sizing.mobile}) {
     padding: 30px;
+    height: 100vh;
+    overflow-y: auto;
   }
 `;
