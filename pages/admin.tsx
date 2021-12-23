@@ -7,14 +7,8 @@ import { Wrapper } from 'styles/Admin.styles';
 import PostManageForm from '../components/organisms/PostManageForm/PostManageForm';
 import ScheduledManager from '../components/organisms/ScheduledManager/ScheduledManager';
 import PostManager from '../components/organisms/PostManager/PostManager';
-import { article } from './article';
-import axios from 'axios';
 
-interface props {
-  articles: article[];
-}
-
-const Dashboard: NextPage<props> = ({ articles }) => {
+const Dashboard: NextPage = () => {
   return (
     <>
       <Head>
@@ -23,27 +17,13 @@ const Dashboard: NextPage<props> = ({ articles }) => {
       <Wrapper>
         <PostManageForm />
         <ScheduledManager />
-        <PostManager articles={articles} />
+        <PostManager />
       </Wrapper>
     </>
   );
 };
 
 Dashboard.title = 'Admin';
-
-export const getServerSideProps = async () => {
-  const {
-    data: { records: articles }
-  } = await axios.get('https://api.m3o.com/v1/db/Read?table=articles', {
-    headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` }
-  });
-
-  return {
-    props: {
-      articles
-    }
-  };
-};
 
 export default withPageAuthRequired<any>(Dashboard, {
   onRedirecting: () => <Loading />

@@ -3,7 +3,7 @@ import { Header } from '../../atoms/Header/Header';
 import Button from '../../atoms/Button/Button';
 import { PostRecord, TableOfPosts } from '../../../styles/Admin.styles';
 import base from '../../../providers/airtable';
-import { article } from '../../../pages/article';
+import { article } from '../../../types/article';
 
 const ScheduledManager = () => {
   const [isLoading, setLoadingState] = useState(false);
