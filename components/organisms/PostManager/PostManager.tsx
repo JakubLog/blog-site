@@ -5,18 +5,22 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { article } from '../../../types/article';
 import Button from '../../atoms/Button/Button';
+import SmallLoading from '../../atoms/SmallLoading/SmallLoading';
 
 const PostManager: React.FC = () => {
-  const { push, reload } = useRouter();
+  const { push } = useRouter();
   const [articles, setArticles] = useState<article[]>([]);
   const [isLoading, setLoadingState] = useState(false);
+  const [status, setStatus] = useState<null | string>(null);
 
   const getArticles = async () => {
+    setStatus(null);
     setLoadingState(true);
     const {
       data: { records: articles }
     } = await axios.get('/api/manage/post');
     setArticles(articles.reverse());
+    setStatus(articles.length > 0 ? `Znaleziono ${articles.length} wpisy.` : 'Nie znaleziono wpisów.');
     setLoadingState(false);
   };
 
@@ -27,7 +31,6 @@ const PostManager: React.FC = () => {
           id
         }
       });
-      reload();
     } catch (err) {
       console.error(err);
     }
@@ -36,10 +39,15 @@ const PostManager: React.FC = () => {
 
   return (
     <>
-      <Header>Zarządzaj postami</Header>
+      <Header>
+        <h1>Zarządzaj postami</h1>
+        {isLoading && <SmallLoading />}
+      </Header>
       <TableOfPosts>
         <div style={{ margin: '20px auto', width: 'fit-content' }}>
-          {articles.length === 0 && <Button onClick={getArticles}>{!isLoading ? 'Załaduj' : 'Pobieranie danych...'}</Button>}
+          {articles.length === 0 && !isLoading && <Button onClick={getArticles}>Załaduj</Button>}
+          {isLoading && <p>Pobieranie danych...</p>}
+          {status && <p>{status}</p>}
         </div>
         {articles.map((article) => (
           <PostRecord

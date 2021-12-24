@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import base from 'providers/airtable';
 import Link from 'next/link';
+import SmallLoading from '../../atoms/SmallLoading/SmallLoading';
 
 interface postData {
   title: string;
@@ -75,7 +76,10 @@ const PostManageForm: React.FC = () => {
 
   return (
     <>
-      <Header>Dodaj nowy post</Header>
+      <Header>
+        <h1>Dodaj nowy post</h1>
+        {isCreating && <SmallLoading />}
+      </Header>
       <Form onSubmit={handleSubmit(handlePost)}>
         <Input placeholder="Title" {...register('title', { required: true })} />
         {errors.title && <ErrorMessage>To pole jest wymagane</ErrorMessage>}
@@ -99,7 +103,7 @@ const PostManageForm: React.FC = () => {
         </div>
         <div style={{ display: 'flex' }}>
           <Button>{!isCreating ? 'Dodaj post' : 'Tworzenie...'}</Button>
-          <div style={{ paddingLeft: 15, alignItems: 'center', fontWeight: 'bold', opacity: '0.4' }}>{isPostCreated}</div>
+          {isPostCreated && <div style={{ paddingLeft: 15, alignItems: 'center', fontWeight: 'bold', opacity: '0.4' }}>{isPostCreated}</div>}
         </div>
       </Form>
     </>
