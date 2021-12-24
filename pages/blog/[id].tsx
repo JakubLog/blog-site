@@ -89,7 +89,7 @@ const BlogID: NextPage<props> = ({ article }) => {
     <Wrapper>
       {user && <DeleteElement onClick={deletePost}>
         <Image src='https://cdn.iconscout.com/icon/free/png-256/delete-trash-bin-dustbin-recycle-useless-30494.png'
-               width={40} height={40} />
+               width={40} height={40} alt='Trash image' />
       </DeleteElement>}
       <article>
         <header>
@@ -139,6 +139,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     { headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` } }
   );
 
+  // eslint-disable-next-line
   const article = articles.data.records.find((article: any) => article.friendly === params?.id);
   if (!article) return { props: { article: { status: 'not-found' } } };
 

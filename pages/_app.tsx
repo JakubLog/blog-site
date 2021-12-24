@@ -14,6 +14,7 @@ import { pageview } from '../helpers/ga';
 import { AnimatePresence, motion } from 'framer-motion';
 import { routesVariant } from '../variants/Routing';
 
+// eslint-disable-next-line
 const handleStartLoading = (url: any) => {
   NProgress.start();
   pageview(url);

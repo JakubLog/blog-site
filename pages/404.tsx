@@ -13,6 +13,7 @@ const Error404: NextPage = () => {
       setNumber(number - 1);
     }, 1000);
     return () => clearInterval(timer);
+    // eslint-disable-next-line
   }, [number]);
 
   return (

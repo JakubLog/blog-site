@@ -28,7 +28,7 @@ const Bar: React.FC<props> = ({ isOpen }) => {
     <Wrapper isOpen={isOpen}>
       {user && (
         <LogoutButton onClick={handleLogout}>
-          <Image height={50} width={50} src={'https://cdn.iconscout.com/icon/free/png-256/logout-2032031-1713022.png'} />
+          <Image height={50} width={50} src={'https://cdn.iconscout.com/icon/free/png-256/logout-2032031-1713022.png'} alt="Logout image" />
         </LogoutButton>
       )}
       <Header>

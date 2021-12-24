@@ -3,7 +3,7 @@ import { FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, T
 import { Wrapper } from './ShareIcons.styles';
 
 const ShareIcons: React.FC = () => {
-  const [siteName, setSiteName] = useState("https://fedoszczak.ovh/blog");
+  const [siteName, setSiteName] = useState('https://fedoszczak.ovh/blog');
 
   useEffect(() => {
     setSiteName(window.location.href);

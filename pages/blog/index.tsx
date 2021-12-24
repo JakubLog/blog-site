@@ -19,11 +19,9 @@ const Blog: NextPage<props> = ({ allArticles }) => {
   const { user } = useUser();
   const [articles, setArticles] = useState(paginate.paginate(allArticles, 1, 8));
 
-  const nextPage = () =>
-    setArticles(paginate.paginate(allArticles, articles.next, 8));
+  const nextPage = () => setArticles(paginate.paginate(allArticles, articles.next, 8));
 
-  const prevPage = () =>
-    setArticles(paginate.paginate(allArticles, articles.prev, 8));
+  const prevPage = () => setArticles(paginate.paginate(allArticles, articles.prev, 8));
 
   return (
     <Wrapper>
@@ -31,21 +29,21 @@ const Blog: NextPage<props> = ({ allArticles }) => {
         {articles.items.map((article: any, i: number) => (
           <ArticleSnippet data={article} key={nanoid()} isNew={i === 0 && articles.current === articles.first} />
         ))}
-        {allArticles.length > 8 &&
-        <nav>
-          <PageNavigation>
-            <PageButton onClick={prevPage} disabled={articles.current === 1}>
-              Prev
-            </PageButton>
-            <PageCounter>
-              {articles.current} / {articles.last}
-            </PageCounter>
-            <PageButton onClick={nextPage} disabled={articles.last === articles.current}>
-              Next
-            </PageButton>
-          </PageNavigation>
-        </nav>
-        }
+        {allArticles.length > 8 && (
+          <nav>
+            <PageNavigation>
+              <PageButton onClick={prevPage} disabled={articles.current === 1}>
+                Prev
+              </PageButton>
+              <PageCounter>
+                {articles.current} / {articles.last}
+              </PageCounter>
+              <PageButton onClick={nextPage} disabled={articles.last === articles.current}>
+                Next
+              </PageButton>
+            </PageNavigation>
+          </nav>
+        )}
         {user && (
           <Link href={'/admin'}>
             <AddButton>

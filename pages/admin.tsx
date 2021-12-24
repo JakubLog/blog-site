@@ -25,6 +25,7 @@ const Dashboard: NextPage = () => {
 
 Dashboard.title = 'Admin';
 
+// eslint-disable-next-line
 export default withPageAuthRequired<any>(Dashboard, {
   onRedirecting: () => <Loading />
 });

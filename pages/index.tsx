@@ -15,8 +15,8 @@ const Home: NextPage = () => {
             Siemka! Z tej strony <strong>Kuba</strong>, a ty znajdujesz się w miejscu, gdzie znajdziesz wszystko!
           </StyledTitle>
           <Quote>
-            Life is too short to worry about stupid things. Have fun. Fall in love. Regret nothing, and don't let people bring you down. Study, think,
-            create, and grow. Teach yourself and teach others. - Prof. Feynman
+            Life is too short to worry about stupid things. Have fun. Fall in love. Regret nothing, and don&apos;t let people bring you down. Study,
+            think, create, and grow. Teach yourself and teach others. - Prof. Feynman
           </Quote>
         </header>
         <Section title="Trochę o mnie! ✍🏻">
@@ -45,7 +45,7 @@ const Home: NextPage = () => {
           <p>
             Myślę, że mój profil na{' '}
             <a href="https://github.com/jakublog" target="_blank" rel="noreferrer noopener">
-              GitHub'ie
+              GitHub&apos;ie
             </a>{' '}
             mówi sam za siebie.
           </p>
@@ -66,11 +66,11 @@ const Home: NextPage = () => {
           <p>
             Pssst! Najczęściej odpowiadam na{' '}
             <a href="mailto:kontakt.jakubfedoszczak@gmail.com" target="_blank" rel="noreferrer noopener">
-              mail'u
+              mail&apos;u
             </a>{' '}
             {''}i{' '}
             <a href="https://instagram.com/jakub_fedoszczak__" target="_blank" rel="noreferrer noopener">
-              instagram'ie!
+              instagram&apos;ie!
             </a>
           </p>
         </Section>

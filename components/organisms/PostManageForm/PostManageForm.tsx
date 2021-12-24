@@ -27,7 +27,7 @@ const PostManageForm: React.FC = () => {
     handleSubmit,
     reset
   } = useForm();
-  const [isPostCreated, setPostCreatedState] = useState<any>(undefined);
+  const [isPostCreated, setPostCreatedState] = useState<undefined | JSX.Element>(undefined);
   const [isCreating, setCreatingState] = useState(false);
 
   const handlePost = async ({ title, category, description, content, sources, isPlanned }: postData) => {

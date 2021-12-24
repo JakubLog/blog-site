@@ -7,9 +7,18 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "next/core-web-vitals"
   ],
-  "plugins": ["prettier", "@typescript-eslint"],
+  "plugins": [
+    "prettier",
+    "@typescript-eslint"
+  ],
   "rules": {
-    "prettier/prettier": ["error", { "singleQuote": true }]
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
+      }
+    ],
+    "@typescript-eslint/ban-ts-comment": "off"
   },
   "env": {
     "browser": true,

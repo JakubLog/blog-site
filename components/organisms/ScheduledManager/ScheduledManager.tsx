@@ -50,7 +50,7 @@ const ScheduledManager = () => {
       </div>
       <TableOfPosts>
         {scheduledPosts.map((post: article) => (
-          <PostRecord>
+          <PostRecord key={post.id}>
             <h3>{post.title}</h3>
             <p>{post.category}</p>
             <button onClick={() => deleteScheduled(post.id)}>X</button>

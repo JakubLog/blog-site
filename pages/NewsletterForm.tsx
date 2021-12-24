@@ -5,6 +5,7 @@ import { Form } from '../components/atoms/Form/Form';
 import Button from '../components/atoms/Button/Button';
 
 interface props {
+  // eslint-disable-next-line
   subscribe: ({ email }: any) => void;
   status: string | null;
 }
@@ -28,6 +29,7 @@ const NewsletterForm: React.FC<props> = ({ subscribe, status }) => {
       localStorage.setItem('isSubscribed', 'true');
       reset();
     }
+    // eslint-disable-next-line
   }, [status]);
 
   const handleNewsletter = ({ email }: { email: string }) => {
