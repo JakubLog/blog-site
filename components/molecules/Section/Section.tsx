@@ -7,7 +7,7 @@ interface props {
 
 const Section: React.FC<props> = ({ title, children }) => {
   return (
-    <section tabIndex={1}>
+    <section aria-label={title} role="contentinfo">
       <Wrapper>
         <header>
           <StyledTitle>{title}</StyledTitle>

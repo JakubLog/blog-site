@@ -47,7 +47,7 @@ const NewsletterForm: React.FC<props> = ({ subscribe, status }) => {
         })}
         disabled={isSubscribed}
       />
-      <Button disabled>
+      <Button disabled={isSubscribed}>
         {status === 'sending'
           ? 'Wysyłanie...'
           : status === 'error' || errors.email

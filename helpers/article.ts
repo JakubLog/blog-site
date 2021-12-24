@@ -23,10 +23,11 @@ export const addHeaderIds = () => {
   });
 };
 
-export const addHeaderTab = () => {
+export const addHeaderARIA = () => {
   reducer((header) => {
     if (header !== null) {
-      header.setAttribute('tabindex', '1');
+      header.setAttribute('role', 'contentinfo');
+      header.setAttribute('aria-label', `${header.tagName.toLowerCase()} ${header.textContent}`);
     }
   });
 };

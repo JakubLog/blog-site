@@ -22,7 +22,7 @@ const MainTemplate: React.FC = ({ children }) => {
   return (
     <Site>
       <Bar isOpen={isOpen} />
-      <main tabIndex={1} aria-live="polite" aria-atomic="true">
+      <main aria-live="polite" aria-atomic="true">
         {children}
       </main>
       <NavButton aria-label="Navigation button" isOpen={isOpen} onClick={toggleState}>

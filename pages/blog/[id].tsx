@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { Content, StyledTitle, Wrapper } from 'styles/Article.styles';
 import Sources from '../../components/organisms/Sources/Sources';
 import { useRouter } from 'next/router';
-import { addHeaderIds, addHeaderTab, getHeaders, updateURL } from '../../helpers/article';
+import { addHeaderARIA, addHeaderIds, getHeaders, updateURL } from '../../helpers/article';
 import axios from 'axios';
 import Error404 from '../404';
 import Loading from '../../components/atoms/Loading/Loading';
@@ -43,7 +43,7 @@ const BlogID: NextPage<props> = ({ article }) => {
   useEffect(() => {
     if (article) {
       addHeaderIds();
-      addHeaderTab();
+      addHeaderARIA();
 
       observer.current = new IntersectionObserver(
         (entries) => {
