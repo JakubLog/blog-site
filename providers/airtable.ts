@@ -1,3 +1,3 @@
 import Airtable from 'airtable';
 
-export default new Airtable({ apiKey: 'key7pJTgcAbXkgfht' }).base('app4AttrWnY2xBs1I');
+export default new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(process.env.AIRTABLE_BASE_ID || '');
