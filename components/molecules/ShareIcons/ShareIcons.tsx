@@ -13,13 +13,13 @@ const ShareIcons: React.FC = () => {
     <Wrapper>
       <p>No udostępnij no... 😢</p>
       <FacebookShareButton url={siteName}>
-        <FacebookIcon round size={40} />
+        <FacebookIcon round size={30} />
       </FacebookShareButton>
       <TwitterShareButton url={siteName}>
-        <TwitterIcon round size={40} />
+        <TwitterIcon round size={30} />
       </TwitterShareButton>
       <LinkedinShareButton url={siteName}>
-        <LinkedinIcon round size={40} />
+        <LinkedinIcon round size={30} />
       </LinkedinShareButton>
     </Wrapper>
   );
