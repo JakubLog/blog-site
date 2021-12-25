@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { NextPage } from 'next';
 import { ErrorParagraph, ErrorTitle, RedirectingInfo, Wrapper } from '../styles/Error404.styles';
 import { useRouter } from 'next/router';
+import { ExtendedNextPage } from '../types/NextPage';
 
-const Error404: NextPage = () => {
+const Error404: ExtendedNextPage = () => {
   const [number, setNumber] = useState(5);
   const { asPath, replace } = useRouter();
 
