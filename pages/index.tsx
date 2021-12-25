@@ -1,12 +1,12 @@
 import React from 'react';
-import type { NextPage } from 'next';
 import Section from '../components/molecules/Section/Section';
 import Link from 'next/link';
 import { List } from 'components/atoms/List/List';
 import { Quote } from 'components/atoms/Quote/Quote';
 import { StyledTitle, Wrapper } from 'styles/Home.styles';
+import { ExtendedNextPage } from '../types/NextPage';
 
-const Home: NextPage = () => {
+const Home: ExtendedNextPage = () => {
   return (
     <Wrapper>
       <article>

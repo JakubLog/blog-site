@@ -2,11 +2,12 @@ import React from 'react';
 import { List } from '../components/atoms/List/List';
 import { Wrapper } from 'styles/Newsletter.styles';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
-import NewsletterForm from './NewsletterForm';
+import NewsletterForm from '../components/molecules/NewsletterForm/NewsletterForm';
+import { ExtendedNextPage } from '../types/NextPage';
 
 const url = 'https://ovh.us20.list-manage.com/subscribe/post?u=ceb122a317c9f872c9e9cf951&amp;id=803f979c62';
 
-const newsletter = () => {
+const newsletter: ExtendedNextPage = () => {
   return (
     <Wrapper className="fade-in-animation">
       <div>

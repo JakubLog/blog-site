@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Input } from '../components/atoms/Input/Input';
-import { Form } from '../components/atoms/Form/Form';
-import Button from '../components/atoms/Button/Button';
+import { Input } from '../../atoms/Input/Input';
+import { Form } from '../../atoms/Form/Form';
+import Button from '../../atoms/Button/Button';
 
 interface props {
   // eslint-disable-next-line
