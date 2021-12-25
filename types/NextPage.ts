@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
 
-export type ExtendedNextPage = NextPage & {
+export type ExtendedNextPage<T> = NextPage<T> & {
   title?: string;
 };

@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
-import { NextPage } from 'next';
 import React, { useState } from 'react';
 import { AddButton, List, PageButton, PageCounter, PageNavigation, Wrapper } from 'styles/Articles.styles';
 import ArticleSnippet from '../../components/molecules/ArticleSnippet/ArticleSnippet';
@@ -10,12 +9,13 @@ import Link from 'next/dist/client/link';
 import Button from '../../components/atoms/Button/Button';
 // @ts-ignore
 import paginate from 'paginatejson';
+import { ExtendedNextPage } from '../../types/NextPage';
 
 interface props {
   allArticles: any;
 }
 
-const Blog: NextPage<props> = ({ allArticles }) => {
+const Blog: ExtendedNextPage<props> = ({ allArticles }) => {
   const { user } = useUser();
   const [articles, setArticles] = useState(paginate.paginate(allArticles, 1, 8));
 
