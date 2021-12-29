@@ -49,7 +49,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           content: content,
           sources: sources ? JSON.parse(sources) : null,
           category: category,
-          date: format(new Date(), 'dd-MM-yyyy'),
+          date: format(new Date(), 'dd.MM.yyyy'),
           friendly: generatedUrl
         };
         await axios.post(
