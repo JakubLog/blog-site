@@ -56,8 +56,7 @@ const PostManager: React.FC = () => {
               !article.friendly ||
               !article.title ||
               !article.content ||
-              !article.category ||
-              (!Array.isArray(article.sources) && article.sources !== null)
+              (!Array.isArray(article.sources) && article.sources !== null && article.sources !== undefined)
             }
           >
             <h3 onClick={() => push(`/blog/${article.friendly}`)}>{article.title}</h3>
