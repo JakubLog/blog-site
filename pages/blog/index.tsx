@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios from 'axios';
 import React, { useState } from 'react';
 import { AddButton, List, PageButton, PageCounter, PageNavigation, Wrapper } from 'styles/Articles.styles';
 import ArticleSnippet from '../../components/molecules/ArticleSnippet/ArticleSnippet';
@@ -10,6 +9,7 @@ import Button from '../../components/atoms/Button/Button';
 // @ts-ignore
 import paginate from 'paginatejson';
 import { ExtendedNextPage } from '../../types/NextPage';
+import axios from 'axios';
 
 interface props {
   allArticles: any;
@@ -58,12 +58,10 @@ const Blog: ExtendedNextPage<props> = ({ allArticles }) => {
 Blog.title = 'Blog';
 
 export const getServerSideProps = async () => {
-  const allArticles = await axios.post(
-    'https://api.m3o.com/v1/db/Read',
-    { table: 'articles' },
-    { headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` } }
+  const { data: articles } = await axios.get(
+    'https://api.fedoszczak.ovh/api/v1/blog/posts'
   );
-  const preparedArticles = allArticles.data.records.reverse();
+  const preparedArticles = articles.data.reverse();
 
   return {
     props: { allArticles: preparedArticles }

@@ -10,27 +10,27 @@ interface props {
     description: string;
     category: string;
     date: string;
-    friendly: string;
+    ['friendly-url']: string;
   };
   isNew: boolean;
 }
 
-const ArticleSnippet: React.FC<props> = ({ data: { title, description, category, date, friendly }, isNew }) => {
+const ArticleSnippet: React.FC<props> = ({ data: { title, description, category, date, ...rest }, isNew }) => {
   const { push } = useRouter();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handlePostClick = (e: any) => {
     if (e.key !== 'Tab') {
-      push(`/blog/${friendly}`);
+      push(`/blog/${rest['friendly-url']}`);
     }
   };
 
   return (
     <Wrapper
       variants={snippetVariant}
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
+      initial='initial'
+      animate='animate'
+      whileHover='hover'
       isNew={isNew}
       onKeyDown={handlePostClick}
       onClick={handlePostClick}
