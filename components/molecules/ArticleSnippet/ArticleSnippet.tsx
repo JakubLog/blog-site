@@ -10,33 +10,33 @@ interface props {
     description: string;
     category: string;
     date: string;
-    friendly: string;
+    slug: string;
   };
   isNew: boolean;
 }
 
-const ArticleSnippet: React.FC<props> = ({ data: { title, description, category, date, friendly }, isNew }) => {
+const ArticleSnippet: React.FC<props> = ({ data: { title, description, category, date, ...rest }, isNew }) => {
   const { push } = useRouter();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handlePostClick = (e: any) => {
     if (e.key !== 'Tab') {
-      push(`/blog/${friendly}`);
+      push(`/blog/${rest.slug}`);
     }
   };
 
   return (
     <Wrapper
       variants={snippetVariant}
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
+      initial='initial'
+      animate='animate'
+      whileHover='hover'
       isNew={isNew}
       onKeyDown={handlePostClick}
       onClick={handlePostClick}
       tabIndex={1}
     >
-      <StyledTitle data-category={`~ ${category}`}>{title}</StyledTitle>
+      <StyledTitle data-category={`~ ${category[0]}`}>{title}</StyledTitle>
       <Description>{description}</Description>
       <Date>{date}</Date>
     </Wrapper>

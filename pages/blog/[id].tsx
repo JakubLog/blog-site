@@ -21,7 +21,7 @@ interface props {
     title: string;
     content: string;
     category: string;
-    friendly: string;
+    slug: string;
     sources?: {
       name: string;
       url: string;
@@ -77,12 +77,8 @@ const BlogID: NextPage<props> = ({ article }) => {
   }
 
   const deletePost = async () => {
-    await axios.delete('/api/manage/post', {
-      data: {
-        id: article.id
-      }
-    });
-    push('/blog');
+    await axios.delete(`https://api.fedoszczak.ovh/api/v1/blog/posts/${article.id}`);
+    await push('/blog');
   };
 
   return (
@@ -93,7 +89,7 @@ const BlogID: NextPage<props> = ({ article }) => {
       </DeleteElement>}
       <article>
         <header>
-          <StyledTitle data-category={article.category}>{article.title}</StyledTitle>
+          <StyledTitle data-category={article.category[0]}>{article.title}</StyledTitle>
         </header>
         <section>
           <Content id='article'>
@@ -113,17 +109,15 @@ const BlogID: NextPage<props> = ({ article }) => {
 };
 
 export const getStaticPaths = async () => {
-  const allArticles = await axios.post(
-    'https://api.m3o.com/v1/db/Read',
-    { table: 'articles' },
-    { headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` } }
+  const { data: articles } = await axios.get(
+    `https://api.fedoszczak.ovh/api/v1/blog/posts`
   );
 
-  if (!allArticles.data.records) return { paths: [{ params: { id: 1 } }] };
+  if (!articles.data) return { paths: [{ params: { id: 1 } }] };
 
-  const paths = allArticles.data.records.map((article: props['article']) => ({
+  const paths = articles.data.map((article: props['article']) => ({
     params: {
-      id: article.friendly?.toString() || 'not-found'
+      id: article.slug?.toString() || 'not-found'
     }
   }));
 
@@ -133,14 +127,10 @@ export const getStaticPaths = async () => {
   };
 };
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const articles = await axios.post(
-    'https://api.m3o.com/v1/db/Read',
-    { table: 'articles' },
-    { headers: { Authorization: `Bearer ${process.env.NEXT_APP_DB_API_KEY}` } }
+  const { data: { data: article } } = await axios.get(
+    `https://api.fedoszczak.ovh/api/v1/blog/posts/${params?.id}`
   );
 
-  // eslint-disable-next-line
-  const article = articles.data.records.find((article: any) => article.friendly === params?.id);
   if (!article) return { props: { article: { status: 'not-found' } } };
 
   return {
