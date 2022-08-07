@@ -21,7 +21,7 @@ interface props {
     title: string;
     content: string;
     category: string;
-    ['friendly-url']: string;
+    slug: string;
     sources?: {
       name: string;
       url: string;
@@ -77,12 +77,8 @@ const BlogID: NextPage<props> = ({ article }) => {
   }
 
   const deletePost = async () => {
-    await axios.delete('/api/manage/post', {
-      data: {
-        id: article.id
-      }
-    });
-    push('/blog');
+    await axios.delete(`https://api.fedoszczak.ovh/api/v1/blog/posts/${article.id}`);
+    await push('/blog');
   };
 
   return (
@@ -93,7 +89,7 @@ const BlogID: NextPage<props> = ({ article }) => {
       </DeleteElement>}
       <article>
         <header>
-          <StyledTitle data-category={article.category}>{article.title}</StyledTitle>
+          <StyledTitle data-category={article.category[0]}>{article.title}</StyledTitle>
         </header>
         <section>
           <Content id='article'>
@@ -121,7 +117,7 @@ export const getStaticPaths = async () => {
 
   const paths = articles.data.map((article: props['article']) => ({
     params: {
-      id: article['friendly-url']?.toString() || 'not-found'
+      id: article.slug?.toString() || 'not-found'
     }
   }));
 

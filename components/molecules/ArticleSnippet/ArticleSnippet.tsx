@@ -10,7 +10,7 @@ interface props {
     description: string;
     category: string;
     date: string;
-    ['friendly-url']: string;
+    slug: string;
   };
   isNew: boolean;
 }
@@ -21,7 +21,7 @@ const ArticleSnippet: React.FC<props> = ({ data: { title, description, category,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handlePostClick = (e: any) => {
     if (e.key !== 'Tab') {
-      push(`/blog/${rest['friendly-url']}`);
+      push(`/blog/${rest.slug}`);
     }
   };
 
@@ -36,7 +36,7 @@ const ArticleSnippet: React.FC<props> = ({ data: { title, description, category,
       onClick={handlePostClick}
       tabIndex={1}
     >
-      <StyledTitle data-category={`~ ${category}`}>{title}</StyledTitle>
+      <StyledTitle data-category={`~ ${category[0]}`}>{title}</StyledTitle>
       <Description>{description}</Description>
       <Date>{date}</Date>
     </Wrapper>
