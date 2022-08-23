@@ -53,7 +53,7 @@ class MyDocument extends Document {
           `
             }}
           />
-          <!-- ManyChat -->
+          {/*Many chat*/}
           <script src='//widget.manychat.com/970832852947105.js' defer='defer'></script>
           <script src='https://mccdn.me/assets/js/widget.js' defer='defer'></script>
           <meta name='twitter:card' content='summary_large_image' />
