@@ -1,18 +1,18 @@
 import React from 'react';
 import Head from 'next/head';
-import Loading from '../components/atoms/Loading/Loading';
-import { withPageAuthRequired } from '@auth0/nextjs-auth0';
-import { NextPage } from 'next';
 import { Wrapper } from 'styles/Admin.styles';
 import PostManageForm from '../components/organisms/PostManageForm/PostManageForm';
 import ScheduledManager from '../components/organisms/ScheduledManager/ScheduledManager';
 import PostManager from '../components/organisms/PostManager/PostManager';
+import { ExtendedNextPage } from '../types/NextPage';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
+import Loading from '../components/atoms/Loading/Loading';
 
-const Dashboard: NextPage = () => {
+const Dashboard: ExtendedNextPage = () => {
   return (
     <>
       <Head>
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name='robots' content='noindex, nofollow' />
       </Head>
       <Wrapper>
         <PostManageForm />
@@ -25,7 +25,6 @@ const Dashboard: NextPage = () => {
 
 Dashboard.title = 'Admin';
 
-// eslint-disable-next-line
 export default withPageAuthRequired<any>(Dashboard, {
   onRedirecting: () => <Loading />
 });

@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { List } from '../components/atoms/List/List';
 import { Wrapper } from 'styles/About.styles';
 import Section from '../components/molecules/Section/Section';
+import { ExtendedNextPage } from '../types/NextPage';
 
-const about = () => {
+const about: ExtendedNextPage = () => {
   return (
     <Wrapper>
       <h1>Pogadajmy może? :)</h1>

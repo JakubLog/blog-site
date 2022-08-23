@@ -23,7 +23,7 @@ const handleStopLoading = () => {
   NProgress.done();
 };
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps & { Component: { title?: string } }) {
   const router = useRouter();
 
   useEffect(() => {
