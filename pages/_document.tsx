@@ -53,9 +53,6 @@ class MyDocument extends Document {
           `
             }}
           />
-          {/*Many chat*/}
-          <script src='//widget.manychat.com/970832852947105.js' defer={true}></script>
-          <script src='https://mccdn.me/assets/js/widget.js' defer={true}></script>
           <meta name='twitter:card' content='summary_large_image' />
           <meta property='og:url' content='https://www.fedoszczak.ovh/' />
           <link rel='canonical' href='https://www.fedoszczak.ovh/' />
